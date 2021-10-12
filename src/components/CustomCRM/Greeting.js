@@ -1,4 +1,4 @@
-import { Grid, Typography, Paper, Box } from '@mui/material';
+import { Grid, Typography} from '@mui/material';
 import { makeStyles, createStyles } from '@mui/styles';
 
 const styles = makeStyles(() => createStyles({

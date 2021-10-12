@@ -8,19 +8,18 @@
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
-    "@material-ui/core": "^4.12.3",
     "@mui/icons-material": "^5.0.1",
     "@mui/material": "^5.0.2",
     "@mui/styles": "^5.0.1",
     "flex-plugin-scripts": "4.2.0",
     "react": "^16.7.0-alpha.2",
-    "react-dom": "^16.7.0-alpha.2"
+    "react-dom": "^16.7.0-alpha.2",
+    "uninstall": "0.0.0"
   },
   "devDependencies": {
     "@twilio/flex-ui": "^1",
     "autoprefixer": "^9.8.8",
     "postcss": "^7.0.39",
-    "react-test-renderer": "16.5.2",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.16"
+    "react-test-renderer": "16.5.2"
   }
 }

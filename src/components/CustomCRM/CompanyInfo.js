@@ -1,7 +1,7 @@
 import { Grid, Typography, Button, ButtonGroup, Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
 
     companyInfoHeader: {
         marginTop: '35px !important'

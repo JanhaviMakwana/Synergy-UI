@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from '@emotion/react';
-import { Grid, createTheme, ThemeProvider as MuiThemeProvider, CssBaseline, Typography } from '@mui/material';
+import { Grid, createTheme, ThemeProvider as MuiThemeProvider, CssBaseline} from '@mui/material';
 import CallsInfoCards from './CallsInfoCards';
 import Cards from './Cards';
 import CompanyInfo from './CompanyInfo';
@@ -53,7 +53,7 @@ const theme = createTheme({
     }
 });
 
-const styles = makeStyles(theme => ({
+const styles = makeStyles(() => ({
     root: {
         fontFamily: 'inherit',
         height: '100%'

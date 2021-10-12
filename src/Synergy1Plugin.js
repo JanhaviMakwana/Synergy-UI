@@ -1,6 +1,6 @@
 import React from 'react';
 import { VERSION } from '@twilio/flex-ui';
-import { FlexPlugin, loadCSS } from 'flex-plugin';
+import { FlexPlugin } from 'flex-plugin';
 import CustomCRM from './components/CustomCRM/CustomCRM';
 import reducers, { namespace } from './states';
 
