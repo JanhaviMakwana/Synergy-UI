@@ -19,23 +19,6 @@ const theme = createTheme({
                     fontWeight: 'bold'
                 }
             }
-        },
-        MuiTabs: {
-            styleOverrides: {
-                indicator: {
-                    height: '35px !important'
-                },
-                root: {
-                    height: '35px !important'
-                }
-            }
-        },
-        MuiTab: {
-            styleOverrides: {
-                root: {
-                    height: '35px !important'
-                }
-            }
         }
     },
     palette: {

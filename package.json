@@ -19,7 +19,6 @@
   "devDependencies": {
     "@twilio/flex-ui": "^1",
     "autoprefixer": "^9.8.8",
-    "postcss": "^7.0.39",
     "react-test-renderer": "16.5.2"
   }
 }
