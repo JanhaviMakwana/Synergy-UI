@@ -36,7 +36,7 @@ const theme = createTheme({
     }
 });
 
-const styles = makeStyles(() => ({
+const useStyles = makeStyles(() => ({
     root: {
         fontFamily: 'inherit',
         height: '100%'
@@ -50,7 +50,7 @@ const styles = makeStyles(() => ({
 }));
 
 const CustomCRM = () => {
-    const classes = styles();
+    const classes = useStyles();
     return (
         <MuiThemeProvider theme={theme}>
             <ThemeProvider theme={theme}>

@@ -1,7 +1,7 @@
-import { Grid, Typography} from '@mui/material';
-import { makeStyles, createStyles } from '@mui/styles';
+import { Grid, Typography } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
-const styles = makeStyles(() => createStyles({
+const useStyles = makeStyles(() => ({
     container: {
         height: 'fit-content',
         margin: '0 auto !important',
@@ -23,7 +23,7 @@ const styles = makeStyles(() => createStyles({
 }));
 
 const Greeting = () => {
-    const classes = styles();
+    const classes = useStyles();
 
     return (
         <Grid xs={12} className={classes.container}>

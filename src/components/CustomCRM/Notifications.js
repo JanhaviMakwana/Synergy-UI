@@ -1,10 +1,10 @@
 import { Grid, Box, Typography, IconButton } from '@mui/material';
-import { makeStyles, createStyles } from '@mui/styles';
+import { makeStyles  } from '@mui/styles';
 import WarningIcon from '@mui/icons-material/Warning';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CloseIcon from '@mui/icons-material/Close';
 
-const styles = makeStyles(() => createStyles({
+const useStyles = makeStyles(() => ({
     container: {
         height: '10px !important',
         marginTop: '0 !important',
@@ -41,7 +41,7 @@ const styles = makeStyles(() => createStyles({
 
 const Notifications = () => {
 
-    const classes = styles();
+    const classes = useStyles();
 
     return (
         <Grid item className={classes.container} >

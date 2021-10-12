@@ -1,8 +1,7 @@
 import { Grid, Paper, Typography } from '@mui/material';
-import { makeStyles, createStyles } from '@mui/styles';
+import { makeStyles} from '@mui/styles';
 
-const useStyles = makeStyles(() =>
-    createStyles({
+const useStyles = makeStyles(() =>({
         container: {
             margin: '0 auto !important',
             height: 'fit-content',
@@ -31,7 +30,7 @@ const useStyles = makeStyles(() =>
     })
 );
 
-const CallsInfoCards = (props) => {
+const CallsInfoCards = () => {
 
     const classes = useStyles();
     const callsInfo = [

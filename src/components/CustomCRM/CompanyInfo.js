@@ -30,8 +30,8 @@ const useStyles = makeStyles(() => ({
     }
 }))
 
-const CompanyInfo = (props) => {
-    const classes = useStyles(props);
+const CompanyInfo = () => {
+    const classes = useStyles();
 
     return (
         <Grid container >

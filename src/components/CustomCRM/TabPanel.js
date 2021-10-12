@@ -7,10 +7,10 @@ import StrikethroughSIcon from '@mui/icons-material/StrikethroughS';
 import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
 import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight';
-import { makeStyles, createStyles } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 
 
-const styles = makeStyles(() => createStyles({
+const useStyles = makeStyles(() =>({
     container: {
         margin: '0 auto !important',
         padding: '0 5px !important'
@@ -56,7 +56,7 @@ const styles = makeStyles(() => createStyles({
 const TabPanel = () => {
 
     const [value, setValue] = useState(0);
-    const classes = styles();
+    const classes = useStyles();
 
     function TabPanel(props) {
         const { children, value, index, ...other } = props;

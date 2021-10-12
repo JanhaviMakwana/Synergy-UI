@@ -1,7 +1,7 @@
-import { makeStyles, createStyles } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 import { Grid, Paper, Typography, Button } from '@mui/material';
 
-const styles = makeStyles(() => createStyles({
+const useStyles = makeStyles(() => ({
     container: {
         width: '100%',
         height: '30%',
@@ -53,7 +53,7 @@ const styles = makeStyles(() => createStyles({
 }));
 
 const Cards = () => {
-    const classes = styles();
+    const classes = useStyles();
     const tags1 = ['Vodafone', 'Scripting'];
     const tags2 = ['MyReceptionist', 'Diary'];
     const tags3 = ['VirtualHQ']
