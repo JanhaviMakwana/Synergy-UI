@@ -12,8 +12,8 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles(() =>({
     container: {
-        margin: '0 auto !important',
-        padding: '0 5px !important'
+        padding: '15px 5px !important',
+        margin: '2px !important'
     },
     tabs: {
         width: '100% !important',
@@ -22,7 +22,7 @@ const useStyles = makeStyles(() =>({
             outline: 'none !important',
             textTransform: 'inherit !important',
             fontWeight: 'bold !important',
-            fontSize: '12px !important',
+            fontSize: '14px !important',
             padding: '0 !important'
         }
     },
@@ -77,8 +77,7 @@ const TabPanel = () => {
                 value={value}
                 className={classes.tabs}
                 onChange={handleChange}
-                variant="standard"
-                indicatorColor="white">
+                variant="standard">
                 <Tab classes={{ selected: classes.tabOpen}} label="Message" />
                 <Tab classes={{ selected: classes.tabOpen}} label="Contacts" />
             </Tabs>
@@ -86,7 +85,7 @@ const TabPanel = () => {
 
                 <Input
                     multiline
-                    rows="2"
+                    rows="7"
                     placeholder="Please call..."
                     className={classes.input}
                     disableUnderline

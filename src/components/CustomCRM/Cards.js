@@ -1,14 +1,15 @@
+import {useState, useEffect} from 'react';
 import { makeStyles } from '@mui/styles';
 import { Grid, Paper, Typography, Button } from '@mui/material';
 
 const useStyles = makeStyles(() => ({
     container: {
-        width: '100%',
-        height: '30%',
-        position: 'relative'
+        height: 'fit-content',
+        position: 'relative',
+        padding: '5px 0 !important'
     },
     card: {
-        width: '100%',
+        margin: '2px 10px !important',
         padding: '5px !important',
         height: '100%',
         '& h5': {
@@ -48,26 +49,38 @@ const useStyles = makeStyles(() => ({
     clearBtn: {
         marginLeft: '5px !important',
         position: 'absolute !important',
-        bottom: 5
+        bottom: 10
     },
 }));
 
-const Cards = () => {
+const Cards = (props) => {
     const classes = useStyles();
-    const tags1 = ['Vodafone', 'Scripting'];
-    const tags2 = ['MyReceptionist', 'Diary'];
-    const tags3 = ['VirtualHQ']
-    const tagsCountry = ['US', 'US', 'UK'];
+    console.log("###################CardsProps", props);
+    const [tags, setTags] = useState();
+    const [callNote, setCallNote] = useState();
+
+    useEffect(() => {
+        if(props.tags) {
+            setTags(props.tags);
+            setCallNote(props.callNote && props.callNote);
+        }
+        return () => {
+            setTags();
+            setCallNote();
+        }
+    },[props.tags]);
+    
     return (
-        <Grid container className={classes.container} spacing={1}>
-            <Grid item xs={5} >
+        <Grid container className={classes.container}>
+           {tags && <Grid item xs={5} >
                 <Paper elevation={1} className={classes.card}>
                     <Typography variant="h5">
                         Tags
                     </Typography>
                     <div className={classes.tagBox}>
-                        {tags1.map(tag => {
+                        {tags.tags1.map((tag, index) => {
                             return <Typography
+                                key={index}
                                 sx={{ backgroundColor: '#fcd0ca' }}
                                 variant="h6"
                             >
@@ -76,8 +89,9 @@ const Cards = () => {
                         })}
                     </div>
                     <div className={classes.tagBox} >
-                        {tags2.map(tag => {
+                        {tags.tags2.map((tag, index) => {
                             return <Typography
+                                key={index}
                                 sx={{ backgroundColor: '#c4ebf2' }}
                                 variant="h6"
                             >
@@ -86,8 +100,9 @@ const Cards = () => {
                         })}
                     </div>
                     <div className={classes.tagBox} >
-                        {tags3.map(tag => {
+                        {tags.tags3.map((tag, index) => {
                             return <Typography
+                                key={index}
                                 sx={{ backgroundColor: '#feeac3' }}
                                 variant="h6"
                             >
@@ -96,18 +111,17 @@ const Cards = () => {
                         })}
                     </div>
                     <div className={classes.tagBox}>
-                        {tagsCountry.map(country => {
-                            return <Typography variant="h6" className={classes.country}>{country}</Typography>
+                        {tags.tags4.map((country, index) => {
+                            return <Typography key={index} variant="h6" className={classes.country}>{country}</Typography>
                         })}
                     </div>
                 </Paper>
-            </Grid>
-            <Grid item xs={7} >
+            </Grid>}
+           {callNote && <Grid item xs={7} >
                 <Paper elevation={1} className={classes.card} sx={{ backgroundColor: '#fbfbef' }}>
                     <Typography variant="h5">Call Notes</Typography>
                     <Typography variant="h6" className={classes.callNote}>
-                        Laboris in qui ut commodo incididunt in deserunt velit amet ipsum in pariatur.
-                        Dolor eu ad est consequat laboris incididunt laborum ad Lorem ex.
+                        {callNote}
                     </Typography>
 
                     <Button variant="contained" color="primary" className={classes.clearBtn}>
@@ -115,7 +129,7 @@ const Cards = () => {
                         </Button>
 
                 </Paper>
-            </Grid>
+            </Grid>}
 
         </Grid>
 

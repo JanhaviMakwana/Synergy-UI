@@ -1,11 +1,10 @@
+import { useState, useEffect } from 'react';
 import { Grid, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles(() => ({
     container: {
-        height: 'fit-content',
-        margin: '0 auto !important',
-        padding: '0 5px !important',
+        padding: '3px 5px !important',
         '& h6': {
             fontSize: '13px'
         }
@@ -16,25 +15,35 @@ const useStyles = makeStyles(() => ({
     },
     greeting: {
         borderRadius: '7px !important',
+        whiteSpace: 'pre-line',
         boxSizing: 'border-box',
         padding: '5px 5px',
         border: '3px solid green',
     }
 }));
 
-const Greeting = () => {
+const Greeting = (props) => {
     const classes = useStyles();
+    console.log("##########GreetingProps", props);
+    const [greeting, setGreeting] = useState();
+
+    useEffect(() => {
+        if (props.greeting) {
+            setGreeting(props.greeting);
+        }
+        return () => {
+            setGreeting();
+        }
+    }, [props.greeting])
 
     return (
-        <Grid xs={12} className={classes.container}>
-            <Typography variant="h6" className={classes.header}>
+        <Grid item xs={12} className={classes.container}>
+           {greeting && <Typography variant="h6" className={classes.header}>
                 Greeting
-			</Typography>
-            <Typography variant="h6" className={classes.greeting}>
-                <p>{`Good <morning/afternoon> XYZ ans Associates. How may I help you ?`}</p>
-                <p>{`.`}</p>
-                <p>{`****and more notes.`}</p>
-            </Typography>
+			</Typography>}
+            {greeting && <Typography variant="h6" className={classes.greeting}>
+                {greeting}
+            </Typography>}
         </Grid>
     );
 

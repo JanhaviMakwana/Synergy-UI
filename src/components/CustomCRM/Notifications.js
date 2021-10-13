@@ -1,13 +1,13 @@
+import { useState, useEffect } from 'react';
 import { Grid, Box, Typography, IconButton } from '@mui/material';
-import { makeStyles  } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 import WarningIcon from '@mui/icons-material/Warning';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CloseIcon from '@mui/icons-material/Close';
 
 const useStyles = makeStyles(() => ({
     container: {
-        height: '10px !important',
-        marginTop: '0 !important',
+        padding: '10px 0 !important',
         '& h6': {
             margin: 'auto 5px !important',
             flex: '1 !important',
@@ -19,7 +19,7 @@ const useStyles = makeStyles(() => ({
             borderRadius: '5px',
             width: '380px',
             display: 'inline-flex',
-            margin: '0 3px !important'
+            margin: '0 7px !important'
         }
     },
     alert: {
@@ -39,22 +39,36 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-const Notifications = () => {
+const Notifications = (props) => {
 
+    const [notifications, setNotifications] = useState();
+    console.log("###########notificationsProps", props);
+    useEffect(() => {
+        if (props.notifications) {
+            setNotifications(props.notifications)
+        }
+        return () => {
+            setNotifications();
+        }
+    }, [props.notifications]);
     const classes = useStyles();
 
     return (
         <Grid item className={classes.container} >
-            <Box item className={classes.alert}>
-                <WarningIcon className={classes.icon} sx={{ color: 'red' }} />
-                <Typography variant="h6">Internet Issues</Typography>
-                <IconButton ><CloseIcon className={classes.closeIcon} /></IconButton>
-            </Box>
-            <Box item className={classes.success} >
-                <CheckCircleIcon className={classes.icon} sx={{ color: '#39a837' }} />
-                <Typography variant="h6">Luisa on call tonight</Typography>
-                <IconButton><CloseIcon className={classes.closeIcon} /></IconButton>
-            </Box>
+            {notifications && notifications.warnings.map(notification => {
+                return <Box item className={classes.alert} key={notification}>
+                    <WarningIcon className={classes.icon} sx={{ color: 'red' }} />
+                    <Typography variant="h6">{notification}</Typography>
+                    <IconButton ><CloseIcon className={classes.closeIcon} /></IconButton>
+                </Box>
+            })}
+            {notifications && notifications.others.map(notification => {
+                return <Box item className={classes.success} key={notification}>
+                    <CheckCircleIcon className={classes.icon} sx={{ color: '#39a837' }} />
+                    <Typography variant="h6">{notification}</Typography>
+                    <IconButton ><CloseIcon className={classes.closeIcon} /></IconButton>
+                </Box>
+            })}
         </Grid>
     );
 
