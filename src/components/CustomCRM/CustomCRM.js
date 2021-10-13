@@ -66,7 +66,6 @@ const useStyles = makeStyles(() => ({
 const CustomCRM = () => {
     const classes = useStyles();
     const [data, setData] = useState();
-    console.log("##################env", process.env);
     useEffect(() => {
         const fetchData = async () => {
             const app = firebase.initializeApp(firebaseConfig);
